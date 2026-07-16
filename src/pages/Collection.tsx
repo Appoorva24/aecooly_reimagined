@@ -98,7 +98,7 @@ export function Collection() {
     }
 
     // Sort so that the Capy Lulu handheld device is always at the very beginning of the array
-    result.sort((a, b) => {
+    result.sort((a: Product, b: Product) => {
       const aIsCapyHandheld = a.title.toLowerCase().includes('capy') && (a.title.toLowerCase().includes('handheld') || a.title.toLowerCase().includes('gimbal'));
       const bIsCapyHandheld = b.title.toLowerCase().includes('capy') && (b.title.toLowerCase().includes('handheld') || b.title.toLowerCase().includes('gimbal'));
       
