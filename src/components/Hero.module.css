@@ -1,0 +1,166 @@
+.hero {
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #05100a; /* Fallback dark green */
+  padding-top: 140px; 
+}
+
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.heroBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center; /* Keep the model on the right in view */
+}
+
+/* Gradient overlay to ensure left text is highly readable against the background */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(5, 15, 10, 0.95) 0%, rgba(5, 15, 10, 0.7) 40%, rgba(0,0,0,0) 80%);
+}
+
+.heroContainer {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+  z-index: 1;
+  position: relative;
+}
+
+.heroText {
+  max-width: 650px;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.microCopy {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+}
+
+.microCopy .line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  max-width: 60px;
+}
+
+.heroText h1 {
+  font-size: clamp(4rem, 6vw, 7rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.heroText p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3.5rem;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.pillBtnPrimary, .pillBtnOutline {
+  padding: 1.25rem 2.5rem;
+  border-radius: 100px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.pillBtnPrimary {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.pillBtnPrimary:hover {
+  background-color: var(--brand-green);
+  color: #000000;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.pillBtnOutline {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.pillBtnOutline:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .overlay {
+    background: linear-gradient(to top, rgba(5, 15, 10, 0.95) 0%, rgba(5, 15, 10, 0.8) 50%, rgba(0,0,0,0.4) 100%);
+  }
+  
+  .heroContainer {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 4rem;
+  }
+  
+  .heroText {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroContainer {
+    padding: 0 1.5rem 3rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .pillBtnPrimary, .pillBtnOutline {
+    width: 100%;
+    text-align: center;
+  }
+}

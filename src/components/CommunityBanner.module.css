@@ -1,0 +1,92 @@
+.bannerSection {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bannerContainer {
+  display: flex;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.textContent {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+}
+
+.collageGrid {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.2);
+}
+
+.collageItem {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.collageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collageItem:hover img {
+  transform: scale(1.05);
+}
+
+/* Make some items span multiple rows/columns for a dynamic collage look */
+.item1 { grid-column: span 2; grid-row: span 2; }
+.item2 { grid-column: span 1; grid-row: span 1; }
+.item3 { grid-column: span 1; grid-row: span 2; }
+.item4 { grid-column: span 1; grid-row: span 1; }
+.item5 { grid-column: span 1; grid-row: span 1; }
+.item6 { grid-column: span 2; grid-row: span 1; }
+.item7 { grid-column: span 1; grid-row: span 1; }
+.item8 { display: none; } /* Adjust to fit the grid perfectly if needed */
+
+@media (max-width: 1024px) {
+  .bannerContainer {
+    flex-direction: column;
+  }
+  .textContent {
+    padding: 3rem 2rem;
+  }
+  .collageGrid {
+    min-height: 400px;
+  }
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+}
